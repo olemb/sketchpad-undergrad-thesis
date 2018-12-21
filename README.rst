@@ -1,5 +1,5 @@
-A Musician Friendly Multilayered MusicRecording System
-======================================================
+A Musician Friendly Multilayered Music Recording System
+=======================================================
 
 Ole Martin Bjørndalen
 
