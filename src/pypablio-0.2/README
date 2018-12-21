@@ -1,0 +1,113 @@
+Introduction
+-------------
+
+pypablio is a Python wrapper for pablio, a blocking read/write
+interface for portaudio.
+
+To cut to the cheese, here's how to play a WAV file in Python using
+pablio:
+
+* Note! * Do not rely on the API staying the way it is now: I have not
+decided on the proper way to pass sample parameters to pablio.open().
+
+
+import wave
+import pablio
+
+file = wave.open('hello.wav', 'r')
+audio = pablio.open('w')
+
+while 1:
+    frames = file.readframes(2048)
+    if frames == '':
+        break
+    audio.writeframes(frames)
+
+
+Requirements
+-------------
+
+Python 2.2 compiled with native thread support (libpthread for linux).
+
+
+Installing
+-----------
+
+The installation process will be more streamlined when I figure out
+how to do it, but for now:
+
+1) Get the portaudio sources from http://www.portaudio.com/
+   and unpack them in this directory so that you get a directory
+   here named portaudio_v18. (If you've got different version,
+   edit setup.py to reflect this.)
+
+2) For Linux/OSS and WINMM/Windows, you can now type:
+
+     python setup.py install
+
+   For other operating systems / APIs, you must edit setup.py
+   a bit to include the relevant files. (See the portaudio
+   documentation.)
+
+
+API
+----
+
+Functions
+
+  open(mode='r', framerate=44100) -> audiostream
+    Return an audiostream object 
+
+  mode must be one of
+
+   'w'   write
+   'r'   read
+   'r+'  full-duplex
+
+  You'll be able to select the sample format and number
+  of channels when I figure out a good way to pass them.
+  For now, you're stuck with 16 bit stereo.
+
+
+audiostream methods
+
+  readframes(nframes) -> string
+    Read n frames from the stream.
+    Will not return until all the data has been read.
+
+  writeframes(string)
+    Write data to the stream.
+    Will not return until all the data has been written.
+
+  close()
+    Close the stream
+
+
+audiostream attributes (all are read only)
+
+  closed      True if the stream is closed, otherwise False
+  readable    the number of frames that can be read without blocking
+  writeable   the number of frames that can be written without blocking
+  minlatency  minimal latency in seconds (based on the environment variable
+              PA_MIN_LATENCY_MSEC, 0 if it is not set)
+
+
+Future work
+------------
+
+Some ironing remains:
+
+- The Distutils setup could probably be more streamlined. How should
+  all the different platforms/APIs be handled?
+
+- There should be some way to set the sample rate, sample format and
+  number of channels.
+
+- The code needs some cleanup.
+
+
+--
+Tromso, 31 July 2002
+Ole Martin Bjoerndalen <olemb@stud.cs.uit.no>
+http://www.cs.uit.no/~olemb/software/pablio/
+

@@ -1,0 +1,52 @@
+Kompilering
+------------
+
+For å få kompilert GUI-versjonen må du endre
+denne linjen i Makefile til hvor nå enn du har installert
+Python-include-filene:
+
+  INCLUDE=-I/usr/local/include/python2.2
+
+Så skal det bare være å skrive 'make'.
+
+
+Bruk
+-----
+
+Kommandolinje-versjonen startes sånn:
+
+  ./record
+
+GUI-versionen startes sånn:
+  
+  python record.py
+
+Begge to lagrer opptaket i /tmp/test.wav når de
+avsluttes.
+
+
+Taster
+-------
+
+Tastene er de samme for begge versjoner:
+
+  q          save and quit
+  b          record
+  b          play
+  space      stop
+  backspace  undo
+  m          toggle input monitoring
+  h          toggle half speed
+  z          decrease top layer level
+  x          increase top layer level
+
+
+Ellers
+-------
+
+Det er ikke noen feilhåndtering. Hvis du slipper opp for
+disk eller minne så går det galt. Pass på at du har
+nok av begge deler før du starter. :)
+
+
+- Ole Martin

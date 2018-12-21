@@ -1,0 +1,7 @@
+_record.o: record.h audio.h lock.h
+audio.o: lock.h record.h
+getkey.o:
+lock.o:
+main.o: record.h audio.h getkey.h lock.h
+record.o: wave.h record.h
+wave.o: wave.h

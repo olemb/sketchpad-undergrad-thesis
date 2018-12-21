@@ -1,0 +1,39 @@
+C version
+==========
+
+
+Architecture
+--------------
+
+The GUI is written in Python and the rest in C. The recording logic
+runs in a separate pthread. Synchronization is achieved through a
+lock. The recording thread acquires the lock for every sample buffer
+it works on. The GUI thread acquires the lock every time it wants to
+call one of the functions in the recording thread's control API.  This
+interaction can be seen in _record.c.
+
+
+Buffers
+--------
+
+There size of the recording buffer can be selected at startup with a
+command line argument. Two fixed size short arrays are used for
+storage (see alloc_buffers() in record.c). The buffer
+
+Extra features: The level of the topmost layer can be adjusted, and it
+is possible to record and play back at half speed.
+
+
+Notable GUI details
+--------------------
+
+A peak indicator is used to indicate the combined input/output level.
+Input monitoring can
+be toggled. There are minute/second ticks in the layer display.
+
+
+Other things to note
+---------------------
+
+main.c, getkey.h and getkey.c implement a console interface to the
+program.

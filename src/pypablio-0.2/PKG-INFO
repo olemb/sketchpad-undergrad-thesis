@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: pypablio
+Version: 0.2
+Summary: Python wrapper for the PABLIO audio API
+Home-page: http://www.cs.uit.no/~olemb/
+Author: Ole Martin Bjorndalen
+Author-email: olemb@stud.cs.uit.no
+License: MIT
+Description: pypablio is a python wrapper for PABLIO, portaudio's
+        blocking API.
+Platform: UNKNOWN

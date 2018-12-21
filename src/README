@@ -1,0 +1,12 @@
+This directory contains the full source code for the c and python
+versions of the program, as well as the python wrapper for PABLIO
+which you may need to run the python version.
+
+To build the PABLIO wrapper, go to pypablio-0.2 and type 'python
+setup.py build' which will give you a .so file or equivalent in the
+'build' directory, or 'python setup.py install' which will build and
+install it for you. I've included PortAudio v18 so you don't have to
+download it to build the wrapper.
+
+--
+Ole Martin Bjørndalen <olemb@stud.cs.uit.no>
