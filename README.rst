@@ -23,11 +23,5 @@ sion. Audio I/O latencies below 6ms were achieved by applying paches to the
 Linux kernel and by compensating for expected latency. A simple user interface
 has been implemented to match the functionality of the system.
 
-
-Full report: `bjorndalen-candmag.pdf<bjorndalen-candmag.pdf>_`.
-
-(The report is not yet linked in any index. Please let me know if
-you'd like to cite it and I will make sure you have a permament URL.
-
 More recent incarnations of these programs can be found in my Canvas
 and Overdub repositories.
